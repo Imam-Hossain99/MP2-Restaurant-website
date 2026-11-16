@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mezban Ghor | Chattogram-style Restaurant</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+   
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#10302C',     
+            turmeric: '#E9A820', 
+            chili: '#B3302A',    
+            rice: '#F7F8F4',     
+            leaf: '#2F6B4F'     
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'sans-serif'],
+            body: ['Literata', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+  
+    .show-req [data-req] { outline: 3px dashed #e11d48; outline-offset: -3px; }
+    .show-req [data-req]::before {
+      content: attr(data-req);
+      position: absolute; top: 0; left: 0; z-index: 60;
+      background: #e11d48; color: #fff;
+      font: 700 11px/1 system-ui, sans-serif;
+      padding: 5px 8px; max-width: 90%;
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+
+<body class="bg-rice text-ink font-body antialiased">
+
+  <header id="top" data-req="REQ 1 · Navigation bar" class="sticky top-0 z-40 bg-ink text-rice shadow-lg">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+      <a href="#top" class="font-display text-xl sm:text-2xl font-extrabold tracking-tight">
+        Mezban <span class="text-turmeric">Ghor</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 font-display font-medium">
+        <li><a href="#menu"    class="pb-1 border-b-2 border-transparent hover:border-turmeric hover:text-turmeric transition">Menu</a></li>
+        <li><a href="#about"   class="pb-1 border-b-2 border-transparent hover:border-turmeric hover:text-turmeric transition">Our Story</a></li>
+        <li><a href="#reserve" class="pb-1 border-b-2 border-transparent hover:border-turmeric hover:text-turmeric transition">Reserve</a></li>
+        <li><a href="#reserve" class="bg-turmeric text-ink px-5 py-2 rounded-full font-bold hover:bg-white transition">Book a table</a></li>
+      </ul>
+
+      <button id="menuBtn" data-req="REQ 4 · Interactive: hamburger button" aria-label="Open menu" aria-expanded="false"
+              class="md:hidden relative p-2 rounded hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+
+    <ul id="mobileMenu" class="hidden md:hidden px-6 pb-5 space-y-3 font-display font-medium border-t border-white/10">
+      <li class="pt-4"><a href="#menu"    class="block hover:text-turmeric">Menu</a></li>
+      <li><a href="#about"   class="block hover:text-turmeric">Our Story</a></li>
+      <li><a href="#reserve" class="block hover:text-turmeric">Reserve a table</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <section id="hero" data-req="REQ 1 · Content section 1: Hero" class="relative bg-ink text-rice overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28 grid md:grid-cols-5 gap-12 items-center">
+
+        <div class="md:col-span-3">
+
+          <p class="font-display font-medium text-turmeric mb-4">Chattogram, Bangladesh</p>
+          <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+            Slow-cooked beef, fresh hilsa, and a table big enough for everyone.
+          </h1>
+          <p class="mt-6 text-lg text-rice/80 max-w-xl leading-relaxed">
+            We cook the way Chattogram cooks for a wedding: mezbani beef simmered for hours, shatkora in the curry, and rice served until you say stop.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#menu" class="bg-turmeric text-ink font-display font-bold px-7 py-3 rounded-full hover:bg-white hover:-translate-y-0.5 transition">See the menu</a>
+            <a href="#reserve" class="border-2 border-rice/40 font-display font-bold px-7 py-3 rounded-full hover:border-turmeric hover:text-turmeric transition">Reserve a table</a>
+          </div>
+        </div>
+
+    
+        <aside class="md:col-span-2 bg-rice text-ink rounded-3xl p-7 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-300">
+          <h2 class="font-display font-extrabold text-2xl">Today's specials</h2>
+          <ul class="mt-5 divide-y divide-ink/15">
+            <li class="flex justify-between gap-4 py-3"><span>Mezbani beef &amp; plain rice</span><strong class="font-display">৳ 420</strong></li>
+            <li class="flex justify-between gap-4 py-3"><span>Ilish with mustard</span><strong class="font-display">৳ 550</strong></li>
+            <li class="flex justify-between gap-4 py-3"><span>Shutki bhuna</span><strong class="font-display">৳ 280</strong></li>
+            <li class="flex justify-between gap-4 py-3"><span>Borhani (glass)</span><strong class="font-display">৳ 80</strong></li>
+          </ul>
+          <p class="text-sm text-ink/60 mt-3">Sample prices for this project.</p>
+        </aside>
+      </div>
+    </section>
+
+
+
+    <section id="menu" data-req="REQ 1 · Content section 2: Menu" class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20">
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight">The menu</h2>
+      <p class="mt-3 text-lg text-ink/70 max-w-xl">Pick a category to filter the dishes.</p>
+
+  
+      <div id="filters" data-req="REQ 4 · Interactive: filter buttons" class="relative mt-8 pt-6 flex flex-wrap gap-3" role="group" aria-label="Menu categories">
+        <button data-filter="all"     class="filter-btn bg-ink text-rice px-5 py-2 rounded-full font-display font-bold transition hover:bg-leaf focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">All</button>
+        <button data-filter="mains"   class="filter-btn bg-ink/10 px-5 py-2 rounded-full font-display font-bold transition hover:bg-turmeric focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">Mains</button>
+        <button data-filter="seafood" class="filter-btn bg-ink/10 px-5 py-2 rounded-full font-display font-bold transition hover:bg-turmeric focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">Seafood</button>
+        <button data-filter="snacks"  class="filter-btn bg-ink/10 px-5 py-2 rounded-full font-display font-bold transition hover:bg-turmeric focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">Snacks</button>
+        <button data-filter="sweets"  class="filter-btn bg-ink/10 px-5 py-2 rounded-full font-display font-bold transition hover:bg-turmeric focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">Drinks &amp; sweets</button>
+      </div>
+
+      <div id="menuGrid" data-req="REQ 3 · Responsive grid (1 → 2 → 3 columns)" class="relative mt-8 pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article data-cat="mains" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Mezbani beef</h3><span class="font-display font-bold text-chili">৳ 420</span>
+          </div>
+          <p class="mt-2 text-ink/70">Beef simmered slowly in black pepper and whole spices, the classic Chattogram feast dish.</p>
+        </article>
+
+        <article data-cat="mains" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Shatkora beef</h3><span class="font-display font-bold text-chili">৳ 460</span>
+          </div>
+          <p class="mt-2 text-ink/70">Tender beef cooked with shatkora, the sour citrus that Chattogram is known for.</p>
+        </article>
+
+        <article data-cat="mains" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Chicken roast &amp; polao</h3><span class="font-display font-bold text-chili">৳ 350</span>
+          </div>
+          <p class="mt-2 text-ink/70">Fragrant polao with a sweet-savory chicken roast on the side.</p>
+        </article>
+
+        <article data-cat="seafood" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Ilish with mustard</h3><span class="font-display font-bold text-chili">৳ 550</span>
+          </div>
+          <p class="mt-2 text-ink/70">Hilsa steamed in a sharp mustard paste with green chili.</p>
+        </article>
+
+        <article data-cat="seafood" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Shutki bhuna</h3><span class="font-display font-bold text-chili">৳ 280</span>
+          </div>
+          <p class="mt-2 text-ink/70">Dried fish fried with onion and chili. Strong, salty, and worth it.</p>
+        </article>
+
+        <article data-cat="seafood" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Prawn malaikari</h3><span class="font-display font-bold text-chili">৳ 520</span>
+          </div>
+          <p class="mt-2 text-ink/70">Large prawns in a creamy coconut-milk gravy.</p>
+        </article>
+
+        <article data-cat="snacks" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Fuchka</h3><span class="font-display font-bold text-chili">৳ 60</span>
+          </div>
+          <p class="mt-2 text-ink/70">Crisp shells filled with spiced chickpeas and tamarind water.</p>
+        </article>
+
+        <article data-cat="snacks" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Chotpoti</h3><span class="font-display font-bold text-chili">৳ 70</span>
+          </div>
+          <p class="mt-2 text-ink/70">Tangy chickpea and potato mix topped with egg and onion.</p>
+        </article>
+
+        <article data-cat="sweets" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Borhani</h3><span class="font-display font-bold text-chili">৳ 80</span>
+          </div>
+          <p class="mt-2 text-ink/70">Spiced yogurt drink with mint. It cuts through a heavy meal.</p>
+        </article>
+
+        <article data-cat="sweets" class="dish group bg-white rounded-2xl p-6 border border-ink/10 hover:border-turmeric hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="flex justify-between items-start gap-3">
+            <h3 class="font-display font-bold text-xl">Mishti doi</h3><span class="font-display font-bold text-chili">৳ 90</span>
+          </div>
+          <p class="mt-2 text-ink/70">Sweet set yogurt in a clay pot.</p>
+        </article>
+
+      </div>
+      <p id="emptyMsg" class="hidden mt-8 text-ink/60">No dishes in this category yet.</p>
+    </section>
+
+    <section id="about" data-req="REQ 1 · Content section 3: About" class="relative bg-leaf text-rice">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight">Cooked like a family gathering</h2>
+          <p class="mt-6 text-lg leading-relaxed text-rice/90">
+            Mezban Ghor started from one idea: the food served at a Chattogram feast should not be saved for weddings. Our kitchen uses the same slow methods and the same spice blends, just for an ordinary Tuesday.
+          </p>
+        </div>
+        <dl class="grid grid-cols-2 gap-6 content-center">
+          <div class="bg-white/10 rounded-2xl p-6"><dt class="text-rice/80">Open</dt><dd class="font-display font-bold text-2xl mt-1">11 am – 11 pm</dd></div>
+          <div class="bg-white/10 rounded-2xl p-6"><dt class="text-rice/80">Days</dt><dd class="font-display font-bold text-2xl mt-1">Every day</dd></div>
+          <div class="bg-white/10 rounded-2xl p-6"><dt class="text-rice/80">Seats</dt><dd class="font-display font-bold text-2xl mt-1">80 guests</dd></div>
+          <div class="bg-white/10 rounded-2xl p-6"><dt class="text-rice/80">Located in</dt><dd class="font-display font-bold text-2xl mt-1">Chattogram</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="reserve" class="max-w-3xl mx-auto px-4 sm:px-6 py-20">
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl tracking-tight">Reserve a table</h2>
+      <p class="mt-3 text-lg text-ink/70">Tell us when you are coming. This is a demo form, so nothing is sent.</p>
+
+      <form id="reserveForm" class="mt-8 grid sm:grid-cols-2 gap-5">
+        <label class="block font-display font-medium">Your name
+          <input required type="text" class="mt-1 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 font-body focus:outline-none focus:ring-2 focus:ring-turmeric" />
+        </label>
+        <label class="block font-display font-medium">Guests
+          <select class="mt-1 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 font-body focus:outline-none focus:ring-2 focus:ring-turmeric">
+            <option>2</option><option>4</option><option>6</option><option>8+</option>
+          </select>
+        </label>
+        <label class="block font-display font-medium sm:col-span-2">Date
+          <input required type="date" class="mt-1 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 font-body focus:outline-none focus:ring-2 focus:ring-turmeric" />
+        </label>
+        <button type="submit" class="sm:col-span-2 bg-chili text-white font-display font-bold px-7 py-3 rounded-full hover:bg-ink transition focus:outline-none focus-visible:ring-2 focus-visible:ring-turmeric">Reserve table</button>
+      </form>
+      <p id="reserveMsg" class="hidden mt-5 rounded-xl bg-leaf/15 text-leaf font-display font-bold px-5 py-4" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="bg-ink text-rice/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between gap-3 text-sm">
+      <p>© 2026 Mezban Ghor. Student project for CSE-2340 (MP2).</p>
+      <a href="#top" class="hover:text-turmeric">Back to top</a>
+    </div>
+  </footer>
+
+
+  <button id="reqToggle" class="fixed bottom-4 right-4 z-50 bg-rose-600 text-white font-display font-bold text-sm px-4 py-3 rounded-full shadow-xl hover:bg-rose-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+    Highlight requirements
+  </button>
+
+  <script>
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+
+    const btns = document.querySelectorAll('.filter-btn');
+    const dishes = document.querySelectorAll('.dish');
+    btns.forEach(btn => btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      btns.forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('bg-ink', active); b.classList.toggle('text-rice', active);
+        b.classList.toggle('bg-ink/10', !active);
+      });
+      let shown = 0;
+      dishes.forEach(d => { const show = f === 'all' || d.dataset.cat === f; d.classList.toggle('hidden', !show); if (show) shown++; });
+      document.getElementById('emptyMsg').classList.toggle('hidden', shown > 0);
+    }));
+
+ 
+    document.getElementById('reserveForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = e.target.querySelector('input[type=text]').value.trim();
+      const msg = document.getElementById('reserveMsg');
+      msg.textContent = 'Thank you, ' + name + '. Your table request is saved.';
+      msg.classList.remove('hidden'); e.target.reset();
+    });
+
+
+    const toggle = document.getElementById('reqToggle');
+    toggle.addEventListener('click', () => {
+      const on = document.body.classList.toggle('show-req');
+      toggle.textContent = on ? 'Hide highlights' : 'Highlight requirements';
+    });
+  </script>
+</body>
+</html>
